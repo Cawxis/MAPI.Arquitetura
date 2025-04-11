@@ -2,42 +2,91 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MAPi.Arquitetura</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MAPI Arquitetura</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f3f3;
+      color: #333;
+    }
+    header {
+      background-color: #40523a;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    main {
+      padding: 2em;
+    }
+    h1, h2 {
+      color: #be5315;
+    }
+    form {
+      background-color: white;
+      padding: 2em;
+      border-radius: 8px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.8em;
+      margin-bottom: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #be5315;
+      color: white;
+      padding: 0.8em 1.2em;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #40523a;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+  </style>
 </head>
 <body>
-
   <header>
-    <img src="img/logo_mapi.png" alt="Logo MAPi" class="logo" />
-    <h1>MAPi.Arquitetura</h1>
-    <p>Transformando espaços com sensibilidade, técnica e propósito.</p>
+    <h1>MAPI Arquitetura</h1>
+    <p>Projetos residenciais, comerciais e reformas em Charqueadas/RS</p>
   </header>
-
-  <section>
-    <h2>Sobre a MAPi</h2>
-    <p>
-      Fundada com base na união entre a arquitetura sensível e o urbanismo consciente,
-      a MAPi.Arquitetura atua com foco em reformas residenciais, clínicas e requalificação de espaços públicos.
-      Trabalhamos com escuta ativa dos clientes, valorizando a identidade local e promovendo o bem-estar através do espaço construído.
-    </p>
-  </section>
-
-  <section>
-    <h2>Entre em contato</h2>
-    <p>📞 (51) 99888-7788<br />
-       ✉️ contato@mapi.arq.br</p>
-    <form action="https://formspree.io/f/SEUCODIGO" method="POST">
-      <input type="text" name="nome" placeholder="Seu nome" required />
-      <input type="email" name="email" placeholder="Seu e-mail" required />
-      <textarea name="mensagem" placeholder="Escreva sua mensagem" rows="5" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
-
+  <main>
+    <section>
+      <h2>Entre em Contato</h2>
+      <form onsubmit="return enviarWhatsApp();">
+        <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+        <input type="email" id="email" name="email" placeholder="Seu e-mail" required />
+        <input type="text" id="cidade" name="cidade" placeholder="Sua cidade" required />
+        <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem" required></textarea>
+        <button type="submit">Enviar via WhatsApp</button>
+      </form>
+    </section>
+  </main>
   <footer>
-    &copy; 2025 MAPi.Arquitetura — Arquitetura & Urbanismo com alma
+    <p>&copy; 2025 MAPI Arquitetura - Charqueadas/RS | Todos os direitos reservados</p>
   </footer>
-
+  <script>
+    function enviarWhatsApp() {
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+      const cidade = document.getElementById("cidade").value;
+      const mensagem = document.getElementById("mensagem").value;
+      const texto = `Olá, meu nome é ${nome}%0AEmail: ${email}%0ACidade: ${cidade}%0AMensagem: ${mensagem}`;
+      window.open(`https://wa.me/555199970901?text=${texto}`, "_blank");
+      return false;
+    }
+  </script>
 </body>
 </html>
+
